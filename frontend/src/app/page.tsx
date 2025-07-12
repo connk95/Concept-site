@@ -74,43 +74,48 @@ export default function Page() {
   useEffect(() => {
     const initialContent = [
       {
-        title: "Whole Bean Medium",
-        text: "Whole bean coffee sourced from our climate-controlled hydroponic coffee farm in Canada.",
+        title: "Subtitle",
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
         boxid: "1",
         location: undefined,
-        imageUrl: "/assets/coffee2.png",
+        imageUrl: undefined,
       },
       {
-        title: "Original Coffee Mug",
-        text: "A branded coffee mug, made in Canada.",
+        title: "Subtitle",
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
         boxid: "2",
         location: undefined,
-        imageUrl: "/assets/mug2.png",
+        imageUrl: undefined,
       },
       {
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
         boxid: "3",
         location: undefined,
+        imageUrl: undefined,
       },
       {
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
         boxid: "4",
         location: undefined,
+        imageUrl: undefined,
       },
       {
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
         boxid: "5",
         location: undefined,
+        imageUrl: undefined,
       },
       {
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
         boxid: "6",
         location: undefined,
+        imageUrl: undefined,
       },
       {
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
         boxid: "7",
         location: undefined,
+        imageUrl: undefined,
       },
     ];
     randomizeLocations(initialContent);
@@ -128,9 +133,9 @@ export default function Page() {
       <Parallax speed={5} className="parallax-layer">
         <div className="hero-text">
           <p>
-            GET YOUR
+            BIG
             <br />
-            GROOVE ON
+            HERO TEXT
           </p>
         </div>
       </Parallax>

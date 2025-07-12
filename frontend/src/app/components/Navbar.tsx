@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
         position: isFixed ? "fixed" : "relative",
         top: 0,
         width: "100%",
-        backgroundColor: "#222222",
+        backgroundColor: "#0a0a0a",
         transition: "height 0.3s ease-in-out",
         height: isFixed ? "4.3rem" : "8rem",
         display: "flex",
@@ -68,22 +68,21 @@ const Navbar: React.FC = () => {
             position: "absolute",
             left: "120px",
             transition: "font-size 0.3s ease-in-out, top 0.3s ease-in-out",
-            top: isFixed ? "-22px" : "37px",
+            top: isFixed ? "-23px" : "36px",
           }}
         >
-          SPIN
+          WEBSITE TITLE
         </h3>
         <h3
           style={{
             position: "absolute",
-            left: "342px",
+            left: "288px",
             transition: "font-size 0.3s ease-in-out, top 0.3s ease-in-out",
             fontSize: "56px",
-            top: isFixed ? "-96px" : "74px",
+            top: isFixed ? "-96px" : "77px",
           }}
         >
           {" "}
-          RECORD CAFE
         </h3>
       </div>
       <Draggable>

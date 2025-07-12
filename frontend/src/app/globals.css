@@ -1,6 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Zen+Kaku+Gothic+New&display=swap");
 
+/* @import "tailwindcss"; */
+/* 
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+} */
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
 @font-face {
   font-family: "neueMontreal";
   font-style: normal;
@@ -13,6 +34,13 @@
   font-style: normal;
   font-weight: bold;
   src: url("/fonts/NeueMontreal-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "drukBoldItalic";
+  /* font-style: normal;
+  font-weight: bold; */
+  src: url("/fonts/DrukText-BoldItalic-Trial.otf") format("opentype");
 }
 
 html,
@@ -60,7 +88,7 @@ body {
   position: absolute;
   width: 20rem;
   background: white;
-  box-shadow: #222222 0px 0px 0px 2px, #222222 0px 4px 6px -1px,
+  box-shadow: #0a0a0a 0px 0px 0px 2px, #0a0a0a 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   padding: 20px;
   filter: blur(2px);
@@ -109,7 +137,7 @@ body {
 
 .header {
   width: 100%;
-  background-color: #222222;
+  background-color: #0a0a0a;
   margin: 0;
   height: var(--header-height, 8rem);
   z-index: 10000;
@@ -126,7 +154,7 @@ body {
   margin: 0;
   margin-left: 2rem;
   color: white;
-  font-size: 94px;
+  font-size: 95px;
   /* font-family: "Chivo", serif; */
   font-family: "neueMontrealBold";
   font-optical-sizing: auto;
@@ -146,7 +174,7 @@ body {
 }
 
 button {
-  background-color: #222222;
+  background-color: #0a0a0a;
   color: white;
 }
 
@@ -175,7 +203,7 @@ button {
   font-weight: 800;
   /* font-style: italic; */
   line-height: 0.72;
-  color: #222222;
+  color: #0a0a0a;
 }
 
 /* The switch - the box around the slider */
@@ -219,11 +247,11 @@ button {
 }
 
 input:checked + .slider {
-  background-color: #222222;
+  background-color: #0a0a0a;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #222222;
+  box-shadow: 0 0 1px #0a0a0a;
 }
 
 input:checked + .slider:before {
@@ -299,8 +327,8 @@ input:checked + .slider:before {
   white-space: nowrap;
   overflow-x: hidden;
   vertical-align: middle;
-  color: #222222;
-  fill: #222222;
+  color: #0a0a0a;
+  fill: #0a0a0a;
 }
 
 .tree-frame button {
