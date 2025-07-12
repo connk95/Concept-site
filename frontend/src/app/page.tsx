@@ -18,12 +18,22 @@ export default function Page() {
   const [zIndexStack, setZIndexStack] = useState<string[]>([]);
   const [pageHeight, setPageHeight] = useState<number>();
 
+  /**
+   * Moves selected element to top of element stack
+   * Higher elements are given larger z-indexes
+   * @param boxid
+   * @returns element stack
+   */
   const bringToFront = (boxid: string) => {
     setZIndexStack((prevStack) => {
       return [...prevStack.filter((id) => id !== boxid), boxid];
     });
   };
 
+  /**
+   * Logically randomizes location of elements on initial load
+   * @param elements
+   */
   const randomizeLocations = (elements: ContentBoxType[]) => {
     elements.forEach((element, index) => {
       const previous = elements[index - 1];
@@ -62,6 +72,9 @@ export default function Page() {
     setContent([...elements]);
   };
 
+  /**
+   * Toggles blurred components when selected
+   */
   const toggleBlur = () => {
     const contentBoxes = document.querySelectorAll<HTMLElement>(".content-box");
     if (blurry === true) {
