@@ -34,7 +34,7 @@ const ContentBox: React.FC<{
 
   return (
     <Draggable bringToFront={bringToFront} zIndex={zIndex}>
-      <Parallax speed={10} className="parallax-box">
+      <Parallax speed={15} className="parallax-box">
         <div
           className={`content-box ${boxno}`}
           style={{

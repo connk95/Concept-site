@@ -43,6 +43,13 @@
   src: url("/fonts/DrukText-BoldItalic-Trial.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "tagdo";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/tagdo.ttf");
+}
+
 html,
 body,
 #root:hover {
@@ -190,7 +197,7 @@ button {
 .hero-text {
   position: absolute;
   left: 55rem;
-  top: 6rem;
+  top: 9rem;
   /* width: 50rem; */
 }
 
@@ -198,11 +205,13 @@ button {
   font-size: 7.2rem;
   margin: 0;
   /* font-family: "Chivo", serif; */
-  font-family: "neueMontrealBold";
+  /* font-family: "neueMontrealBold"; */
+  font-family: "tagdo";
   font-optical-sizing: auto;
   font-weight: 800;
   /* font-style: italic; */
-  line-height: 0.72;
+  /* line-height: 0.72; */
+  line-height: 1;
   color: #0a0a0a;
 }
 

@@ -6,6 +6,12 @@ import { Parallax } from "react-scroll-parallax";
 import "./globals.css";
 import ContentBox, { ContentBoxType } from "./components/ContentBox";
 
+// TODO: Fix body parallax when navbar fixes position
+// parallax speeds are active when page y = 0
+// but body elements move at same speed beyond y > 0
+
+// TODO: Fix element "jump" when navbar fixes position
+
 export default function Page() {
   const [blurry, setBlurry] = useState(true);
   const [content, setContent] = useState<ContentBoxType[]>([]);
@@ -130,7 +136,7 @@ export default function Page() {
         </label>
         <p>toggle blur</p>
       </div>
-      <Parallax speed={5} className="parallax-layer">
+      <Parallax speed={10} className="parallax-layer">
         <div className="hero-text">
           <p>
             BIG
