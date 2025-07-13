@@ -34,12 +34,13 @@ const ContentBox: React.FC<{
 
   return (
     <Draggable bringToFront={bringToFront} zIndex={zIndex}>
-      <Parallax speed={15} className="parallax-box">
+      <Parallax speed={13} className="parallax-box">
         <div
           className={`content-box ${boxno}`}
           style={{
             left: `${left}rem`,
             top: `${top}rem`,
+            transition: "height 1s ease-in-out",
           }}
           onMouseDown={bringToFront}
         >

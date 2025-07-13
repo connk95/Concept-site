@@ -141,7 +141,12 @@ export default function Page() {
   }, []);
 
   return (
-    <div style={{ height: `${pageHeight}rem` }}>
+    <div
+      style={{
+        height: `${pageHeight}rem`,
+        transition: "height 1s ease-in-out",
+      }}
+    >
       <div className="toggle-blur">
         <label className="switch">
           <input type="checkbox" className="blob-check" onChange={toggleBlur} />
@@ -149,7 +154,7 @@ export default function Page() {
         </label>
         <p>toggle blur</p>
       </div>
-      <Parallax speed={10} className="parallax-layer">
+      <Parallax speed={5} className="parallax-layer">
         <div className="hero-text">
           <p>
             BIG
