@@ -2,93 +2,21 @@
 
 import * as React from "react";
 import { useState, useEffect } from "react";
-import { Parallax } from "react-scroll-parallax";
 import "./globals.css";
-import ContentBox, { ContentBoxType } from "./components/ContentBox";
+import { ContentBox } from "./components/ContentBox";
+import { ContentBoxType } from "./types/types";
+import * as utils from "./lib/utils";
+import { HeroText } from "./components/HeroText";
 
 // TODO: Fix body parallax when navbar fixes position
 // parallax speeds are active when page y = 0
 // but body elements move at same speed beyond y > 0
 
-// TODO: Fix element "jump" when navbar fixes position
-
 export default function Page() {
   const [blurry, setBlurry] = useState(true);
   const [content, setContent] = useState<ContentBoxType[]>([]);
   const [zIndexStack, setZIndexStack] = useState<string[]>([]);
-  const [pageHeight, setPageHeight] = useState<number>();
-
-  /**
-   * Moves selected element to top of element stack
-   * Higher elements are given larger z-indexes
-   * @param boxid
-   * @returns element stack
-   */
-  const bringToFront = (boxid: string) => {
-    setZIndexStack((prevStack) => {
-      return [...prevStack.filter((id) => id !== boxid), boxid];
-    });
-  };
-
-  /**
-   * Logically randomizes location of elements on initial load
-   * @param elements
-   */
-  const randomizeLocations = (elements: ContentBoxType[]) => {
-    elements.forEach((element, index) => {
-      const previous = elements[index - 1];
-      const pageWidth = screen.width / 16;
-      const setX = (x: number) => {
-        return x + Math.random() * (x + 10 - (x - 10)) + 15;
-      };
-      const setY = (y: number) => {
-        return Math.random() * 30 + (y - 10);
-      };
-
-      if (index === 0) {
-        element.location = {
-          left: Math.random() * (10 - 5) + 5,
-          top: Math.random() * (10 - 5) + 5,
-        };
-      } else if (previous?.location) {
-        element.location = { left: 0, top: 0 };
-
-        if (previous.location?.left > pageWidth - 48) {
-          element.location.top =
-            setY(previous.location?.top) + (Math.random() * (10 - 5) + 20);
-          element.location.left = Math.random() * (10 - 0) + 5;
-        } else {
-          element.location.left = setX(previous.location.left);
-          element.location.top = setY(previous.location.top);
-          if (element.location.top < 10) {
-            element.location.top += 10;
-          }
-        }
-      }
-      if (index == elements.length - 1 && element.location) {
-        setPageHeight(element.location.top + 20);
-      }
-    });
-    setContent([...elements]);
-  };
-
-  /**
-   * Toggles blurred components when selected
-   */
-  const toggleBlur = () => {
-    const contentBoxes = document.querySelectorAll<HTMLElement>(".content-box");
-    if (blurry === true) {
-      setBlurry(false);
-      contentBoxes.forEach((box) => {
-        box.style.filter = "blur(0px)";
-      });
-    } else if (blurry === false) {
-      setBlurry(true);
-      contentBoxes.forEach((box) => {
-        box.style.filter = "blur(2px)";
-      });
-    }
-  };
+  const [pageHeight, setPageHeight] = useState<number>(0);
 
   useEffect(() => {
     const initialContent = [
@@ -137,7 +65,7 @@ export default function Page() {
         imageUrl: undefined,
       },
     ];
-    randomizeLocations(initialContent);
+    utils.randomizeLocations(initialContent, setPageHeight, setContent);
   }, []);
 
   return (
@@ -149,20 +77,16 @@ export default function Page() {
     >
       <div className="toggle-blur">
         <label className="switch">
-          <input type="checkbox" className="blob-check" onChange={toggleBlur} />
+          <input
+            type="checkbox"
+            className="blob-check"
+            onChange={() => utils.toggleBlur(blurry, setBlurry)}
+          />
           <span className="slider"></span>
         </label>
         <p>toggle blur</p>
       </div>
-      <Parallax speed={5} className="parallax-layer">
-        <div className="hero-text">
-          <p>
-            BIG
-            <br />
-            HERO TEXT
-          </p>
-        </div>
-      </Parallax>
+      <HeroText textArray={["BIG", "HERO TEXT"]} />
 
       {content.map((box, index) => (
         <ContentBox
@@ -173,7 +97,7 @@ export default function Page() {
           location={box.location}
           imageUrl={box.imageUrl}
           zIndex={zIndexStack.indexOf(box.boxid) + 1}
-          bringToFront={() => bringToFront(box.boxid)}
+          bringToFront={() => utils.bringToFront(box.boxid, setZIndexStack)}
         />
       ))}
     </div>

@@ -1,21 +1,7 @@
 import { Parallax } from "react-scroll-parallax";
 import Draggable from "./Draggable";
 
-export interface ContentBoxType {
-  title?: string;
-  text: string;
-  link?: string;
-  boxid: string;
-  imageUrl?: string;
-  location:
-    | {
-        top: number;
-        left: number;
-      }
-    | undefined;
-}
-
-const ContentBox: React.FC<{
+export const ContentBox: React.FC<{
   title?: string;
   text: string;
   link?: string;
@@ -34,7 +20,7 @@ const ContentBox: React.FC<{
 
   return (
     <Draggable bringToFront={bringToFront} zIndex={zIndex}>
-      <Parallax speed={13} className="parallax-box">
+      <Parallax speed={20} className="parallax-box">
         <div
           className={`content-box ${boxno}`}
           style={{
@@ -57,5 +43,3 @@ const ContentBox: React.FC<{
     </Draggable>
   );
 };
-
-export default ContentBox;

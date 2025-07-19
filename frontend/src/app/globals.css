@@ -73,7 +73,7 @@ body,
 body {
   font-family: system-ui;
   margin: 0;
-  height: 100%;
+  min-height: 100%;
   /* filter: blur(2px); */
   /* transition: filter 0.3s; */
 }
@@ -152,7 +152,7 @@ body {
   flex-direction: row;
   opacity: 1;
   margin-bottom: 1rem;
-  transition: height 0.3s ease-in-out;
+  transition: height 0.5s ease-in-out;
 }
 
 .header > div > h3 {
@@ -379,4 +379,10 @@ img {
   font-weight: 400;
   font-style: normal;
   color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: pointer !important;
 }

@@ -3,11 +3,22 @@
 import { useEffect, useRef, useState } from "react";
 import Draggable from "./Draggable";
 import Tree from "./Tree";
+import { useParallaxController } from "react-scroll-parallax";
 
 const Navbar: React.FC = () => {
   const navbarRef = useRef<HTMLDivElement>(null);
   const [isFixed, setIsFixed] = useState(false);
   const [fixedTop, setFixedTop] = useState(0);
+
+  const controller = useParallaxController();
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (controller) controller.update();
+    }, 500); // match your CSS transition duration
+
+    return () => clearTimeout(timeout);
+  }, [controller, isFixed]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +48,7 @@ const Navbar: React.FC = () => {
           top: 0,
           width: "100%",
           backgroundColor: "",
-          transition: "height 0s ease-in-out",
+          transition: "height 0s",
           height: isFixed ? "8rem" : "4.3rem",
           display: "flex",
           alignItems: "center",
@@ -54,7 +65,7 @@ const Navbar: React.FC = () => {
           top: 0,
           width: "100%",
           backgroundColor: "#0a0a0a",
-          transition: "height 0.5s ease-in-out",
+          transition: "height 0.3s ease-in-out",
           height: isFixed ? "4.3rem" : "8rem",
           display: "flex",
           alignItems: "center",
@@ -71,7 +82,7 @@ const Navbar: React.FC = () => {
               fontSize: "82px",
               fontFamily: "Zen Kaku Gothic New",
               fontStyle: "normal",
-              transition: "font-size 0.5s ease-in-out, top 0.5s ease-in-out",
+              transition: "font-size 0.3s ease-in-out, top 0.3s ease-in-out",
               top: isFixed ? "-29px" : "30px",
               textShadow: "none",
               color: "#95d92e",
@@ -84,7 +95,7 @@ const Navbar: React.FC = () => {
             style={{
               position: "absolute",
               left: "120px",
-              transition: "font-size 0.5s ease-in-out, top 0.5s ease-in-out",
+              transition: "font-size 0.3s ease-in-out, top 0.3s ease-in-out",
               top: isFixed ? "-23px" : "36px",
             }}
           >
@@ -94,7 +105,7 @@ const Navbar: React.FC = () => {
             style={{
               position: "absolute",
               left: "288px",
-              transition: "font-size 0.5s ease-in-out, top 0.5s ease-in-out",
+              transition: "font-size 0.3s ease-in-out, top 0.3s ease-in-out",
               fontSize: "56px",
               top: isFixed ? "-96px" : "77px",
             }}
@@ -106,20 +117,24 @@ const Navbar: React.FC = () => {
           <div
             className="content-box menu-box"
             style={{
-              transition: "font-size 0.5s ease-in-out, top 0.5s ease-in-out",
+              transition: "font-size 0.3s ease-in-out, top 0.3s ease-in-out",
               top: isFixed ? "3.2rem" : "5rem",
             }}
           >
             <div className="tree-container">
               <Tree name="Menu">
-                <Tree name="Products">
-                  <Tree name="Category 1" />
-                  <Tree name="Category 2" />
-                  <Tree name="Category 3" />
+                <Tree name="Home" url="/" />
+                <Tree name="Services">
+                  <Tree name="Website" />
                 </Tree>
-                <Tree name="Cart" />
+                <Tree name="Portfolio">
+                  <Tree name="Project 1" />
+                  <Tree name="Project 2" />
+                  <Tree name="Project 3" />
+                </Tree>
+                <Tree name="Technology" url="/technology" />
                 <Tree name="About" />
-                <Tree name="Login" />
+                <Tree name="Contact" />
               </Tree>
             </div>
           </div>
