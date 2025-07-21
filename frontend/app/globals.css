@@ -93,12 +93,10 @@ body {
 
 .content-box {
   position: absolute;
-  width: 20rem;
   background: white;
   box-shadow: #0a0a0a 0px 0px 0px 2px, #0a0a0a 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   padding: 20px;
-  filter: blur(2px);
   user-select: none;
   cursor: grab;
   border-radius: 2px;
@@ -385,4 +383,15 @@ a {
   color: inherit;
   text-decoration: inherit;
   cursor: pointer !important;
+}
+
+.triangle {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent; /* Adjust size */
+  border-bottom: 20px solid #0a0a0a; /* Triangle color */
+  transform: rotate(180deg); /* Rotate 180 degrees */
 }

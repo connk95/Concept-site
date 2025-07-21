@@ -1,5 +1,4 @@
-import { ContentBoxType } from "../components/ContentBox";
-
+import { ContentBoxType } from "../types/types";
 /**
  * Moves selected element to top of element stack
  * Higher elements are given larger z-indexes

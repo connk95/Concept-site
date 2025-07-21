@@ -1,18 +1,12 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect } from "react";
-import "./globals.css";
-import { ContentBox } from "./components/ContentBox";
-import { ContentBoxType } from "./types/types";
-import * as utils from "./lib/utils";
-import { HeroText } from "./components/HeroText";
+import { useEffect, useState } from "react";
+import { ContentBox } from "./ContentBox";
+import { ContentBoxType } from "../types/types";
+import * as utils from "../lib/utils";
+import { HeroText } from "./HeroText";
 
-// TODO: Fix body parallax when navbar fixes position
-// parallax speeds are active when page y = 0
-// but body elements move at same speed beyond y > 0
-
-export default function Page() {
+export default function HomeContent() {
   const [blurry, setBlurry] = useState(true);
   const [content, setContent] = useState<ContentBoxType[]>([]);
   const [zIndexStack, setZIndexStack] = useState<string[]>([]);
@@ -23,44 +17,56 @@ export default function Page() {
       {
         title: "Subtitle",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
-        boxid: "1",
+        link: "/",
+        boxId: "1",
         location: undefined,
         imageUrl: undefined,
       },
       {
         title: "Subtitle",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
-        boxid: "2",
+        link: "/",
+        boxId: "2",
         location: undefined,
         imageUrl: undefined,
       },
       {
+        title: "Subtitle",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
-        boxid: "3",
+        link: "/",
+        boxId: "3",
         location: undefined,
         imageUrl: undefined,
       },
       {
+        title: "Subtitle",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
-        boxid: "4",
+        link: "/",
+        boxId: "4",
         location: undefined,
         imageUrl: undefined,
       },
       {
+        title: "Subtitle",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
-        boxid: "5",
+        link: "/",
+        boxId: "5",
         location: undefined,
         imageUrl: undefined,
       },
       {
+        title: "Subtitle",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
-        boxid: "6",
+        link: "/",
+        boxId: "6",
         location: undefined,
         imageUrl: undefined,
       },
       {
+        title: "Subtitle",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus libero molestiae hic nobis ipsum culpa eveniet dolores vitae, ab repellendus voluptatem vero at labore eligendi mollitia quaerat in delectus! Quis.",
-        boxid: "7",
+        link: "/",
+        boxId: "7",
         location: undefined,
         imageUrl: undefined,
       },
@@ -93,11 +99,13 @@ export default function Page() {
           key={index}
           title={box.title}
           text={box.text}
-          boxno={box.boxid}
+          link={box.link}
+          boxId={box.boxId}
           location={box.location}
           imageUrl={box.imageUrl}
-          zIndex={zIndexStack.indexOf(box.boxid) + 1}
-          bringToFront={() => utils.bringToFront(box.boxid, setZIndexStack)}
+          zIndex={zIndexStack.indexOf(box.boxId) + 1}
+          blur={true}
+          bringToFront={() => utils.bringToFront(box.boxId, setZIndexStack)}
         />
       ))}
     </div>

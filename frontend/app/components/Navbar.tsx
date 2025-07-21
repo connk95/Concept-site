@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Draggable from "./Draggable";
 import Tree from "./Tree";
 import { useParallaxController } from "react-scroll-parallax";
+import Link from "next/link";
 
 const Navbar: React.FC = () => {
   const navbarRef = useRef<HTMLDivElement>(null);
@@ -99,7 +100,7 @@ const Navbar: React.FC = () => {
               top: isFixed ? "-23px" : "36px",
             }}
           >
-            WEBSITE TITLE
+            <Link href="/">WEBSITE TITLE</Link>
           </h3>
           <h3
             style={{
