@@ -4,12 +4,12 @@ import { Parallax } from "react-scroll-parallax";
 import { ContentBoxType } from "../types/types";
 import Draggable from "./Draggable";
 import Image from "next/image";
+import Link from "next/link";
 
 export const ContentBox: React.FC<ContentBoxType> = ({
   title,
   text,
   link,
-  boxId,
   imageUrl,
   location,
   remWidth,
@@ -25,7 +25,7 @@ export const ContentBox: React.FC<ContentBoxType> = ({
     <Draggable bringToFront={bringToFront} zIndex={zIndex}>
       <Parallax speed={20} className="parallax-box">
         <div
-          className={`content-box ${boxId}`}
+          className={"content-box"}
           style={{
             left: `${left}rem`,
             top: `${top}rem`,
@@ -45,7 +45,11 @@ export const ContentBox: React.FC<ContentBoxType> = ({
           <div style={{ display: "flex", flexDirection: "column" }}>
             <h2>{title || "Subtitle"}</h2>
             <p>{text}</p>
-            {link && <button style={{ width: "4rem" }}>Button</button>}
+            {link && (
+              <Link href={link}>
+                <button style={{ width: "4rem" }}>Button</button>
+              </Link>
+            )}{" "}
           </div>
           {imageUrl && (
             <Image

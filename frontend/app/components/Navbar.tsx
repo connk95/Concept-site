@@ -129,7 +129,7 @@ const Navbar: React.FC = () => {
                   <Tree name="Website" />
                 </Tree>
                 <Tree name="Portfolio">
-                  <Tree name="Project 1" />
+                  <Tree name="FITTED" url="/projects/Fitness Tracker" />
                   <Tree name="Project 2" />
                   <Tree name="Project 3" />
                 </Tree>

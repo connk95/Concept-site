@@ -50,6 +50,13 @@
   src: url("/fonts/tagdo.ttf");
 }
 
+@font-face {
+  font-family: "akihabored";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/akihabored.otf");
+}
+
 html,
 body,
 #root:hover {
@@ -200,16 +207,16 @@ button {
 }
 
 .hero-text > p {
-  font-size: 7.2rem;
+  font-size: 9rem;
   margin: 0;
   /* font-family: "Chivo", serif; */
   /* font-family: "neueMontrealBold"; */
-  font-family: "tagdo";
+  font-family: "akihabored";
   font-optical-sizing: auto;
   font-weight: 800;
   /* font-style: italic; */
   /* line-height: 0.72; */
-  line-height: 1;
+  line-height: 0.8;
   color: #0a0a0a;
 }
 
