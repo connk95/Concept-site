@@ -1,14 +1,16 @@
 import { notFound } from "next/navigation";
-import ProjectContent from "./content";
+import { ProjectContent } from "./content";
 import { getProjectBySlug } from "../../lib/queries";
-import { ContentBoxType } from "../../types/types";
+import { NetworkContentBoxType } from "../../types/types";
 
 export default async function ProjectPage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const project: ContentBoxType | null = await getProjectBySlug(params.slug);
+  const project: NetworkContentBoxType | null = await getProjectBySlug(
+    params.slug
+  );
 
   if (!project) {
     notFound();

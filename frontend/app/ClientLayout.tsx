@@ -3,10 +3,10 @@
 import { ParallaxProvider } from "react-scroll-parallax";
 import Navbar from "./components/Navbar";
 import React from "react";
-import { ContentBoxType } from "./types/types";
+import { NetworkContentBoxType } from "./types/types";
 
 type ClientLayoutProps = {
-  projects: ContentBoxType[];
+  projects: NetworkContentBoxType[];
   children: React.ReactNode;
 };
 

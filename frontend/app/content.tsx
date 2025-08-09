@@ -2,17 +2,17 @@
 
 import { useEffect, useState } from "react";
 import { ContentBox } from "./components/ContentBox";
-import { ContentBoxType } from "./types/types";
+import { NetworkContentBoxType } from "./types/types";
 import * as utils from "./lib/utils";
 import { HeroText } from "./components/HeroText";
 
 export default function HomeContent({
   projects,
 }: {
-  projects: ContentBoxType[];
+  projects: NetworkContentBoxType[];
 }) {
   const [blurry, setBlurry] = useState(true);
-  const [content, setContent] = useState<ContentBoxType[]>([]);
+  const [content, setContent] = useState<NetworkContentBoxType[]>([]);
   const [zIndexStack, setZIndexStack] = useState<string[]>([]);
   const [pageHeight, setPageHeight] = useState<number>(0);
 
@@ -44,8 +44,6 @@ export default function HomeContent({
       {content.map((box, index) => (
         <ContentBox
           key={index}
-          id={null}
-          slug={null}
           title={box.title}
           text={box.text}
           buttonLink={`/projects/${box.slug}`}

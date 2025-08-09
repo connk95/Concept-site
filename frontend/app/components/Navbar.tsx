@@ -5,10 +5,10 @@ import Draggable from "./Draggable";
 import Tree from "./Tree";
 import { useParallaxController } from "react-scroll-parallax";
 import Link from "next/link";
-import { ContentBoxType } from "../types/types";
+import { NetworkContentBoxType } from "../types/types";
 
 type NavbarProps = {
-  projects: ContentBoxType[];
+  projects: NetworkContentBoxType[];
 };
 
 const Navbar: React.FC<NavbarProps> = ({ projects }) => {

@@ -1,12 +1,12 @@
 "use client";
 
 import { Parallax } from "react-scroll-parallax";
-import { ContentBoxType } from "../types/types";
+import { NetworkContentBoxType } from "../types/types";
 import Draggable from "./Draggable";
 import Image from "next/image";
 import Link from "next/link";
 
-export const ContentBox: React.FC<ContentBoxType> = ({
+export const ContentBox: React.FC<NetworkContentBoxType> = ({
   title,
   text,
   imageUrl,
