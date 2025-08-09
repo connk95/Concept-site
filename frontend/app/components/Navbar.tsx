@@ -5,8 +5,13 @@ import Draggable from "./Draggable";
 import Tree from "./Tree";
 import { useParallaxController } from "react-scroll-parallax";
 import Link from "next/link";
+import { ContentBoxType } from "../types/types";
 
-const Navbar: React.FC = () => {
+type NavbarProps = {
+  projects: ContentBoxType[];
+};
+
+const Navbar: React.FC<NavbarProps> = ({ projects }) => {
   const navbarRef = useRef<HTMLDivElement>(null);
   const [isFixed, setIsFixed] = useState(false);
   const [fixedTop, setFixedTop] = useState(0);
@@ -16,7 +21,7 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (controller) controller.update();
-    }, 500); // match your CSS transition duration
+    }, 300); // match your CSS transition duration
 
     return () => clearTimeout(timeout);
   }, [controller, isFixed]);
@@ -50,7 +55,7 @@ const Navbar: React.FC = () => {
           width: "100%",
           backgroundColor: "",
           transition: "height 0s",
-          height: isFixed ? "8rem" : "4.3rem",
+          height: "8rem",
           display: "flex",
           alignItems: "center",
           padding: "0 20px",
@@ -129,9 +134,13 @@ const Navbar: React.FC = () => {
                   <Tree name="Website" />
                 </Tree>
                 <Tree name="Portfolio">
-                  <Tree name="FITTED" url="/projects/Fitness Tracker" />
-                  <Tree name="Project 2" />
-                  <Tree name="Project 3" />
+                  {projects.map((project) => (
+                    <Tree
+                      key={project.slug}
+                      name={project.title || ""}
+                      url={`/projects/${project.slug}`}
+                    />
+                  ))}
                 </Tree>
                 <Tree name="Technology" url="/technology" />
                 <Tree name="About" />

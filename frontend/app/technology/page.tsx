@@ -1,4 +1,4 @@
-import TechnologyContent from "./techContent";
+import TechnologyContent from "./content";
 import "../globals.css";
 
 export default function Technology() {

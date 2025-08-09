@@ -9,13 +9,13 @@ import Link from "next/link";
 export const ContentBox: React.FC<ContentBoxType> = ({
   title,
   text,
-  link,
   imageUrl,
   location,
   remWidth,
   layout,
   zIndex,
   blur,
+  buttonLink,
   bringToFront,
 }) => {
   const left = location?.left ?? 0;
@@ -45,8 +45,8 @@ export const ContentBox: React.FC<ContentBoxType> = ({
           <div style={{ display: "flex", flexDirection: "column" }}>
             <h2>{title || "Subtitle"}</h2>
             <p>{text}</p>
-            {link && (
-              <Link href={link}>
+            {buttonLink && (
+              <Link href={buttonLink}>
                 <button style={{ width: "4rem" }}>Button</button>
               </Link>
             )}{" "}

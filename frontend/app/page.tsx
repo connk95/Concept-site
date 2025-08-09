@@ -1,6 +1,9 @@
-import HomeContent from "./components/HomeContent";
+import HomeContent from "./content";
+import { getHomeProjects } from "./lib/queries";
 import "./globals.css";
+import { ContentBoxType } from "./types/types";
 
-export default function Page() {
-  return <HomeContent />;
+export default async function Page() {
+  const projects: ContentBoxType[] = await getHomeProjects();
+  return <HomeContent projects={projects} />;
 }

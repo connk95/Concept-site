@@ -1,21 +1,17 @@
-"use client";
+import ClientLayout from "./ClientLayout";
+import { getHomeProjects } from "./lib/queries";
 
-import { ParallaxProvider } from "react-scroll-parallax";
-import Navbar from "./components/Navbar";
-import "./globals.css";
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const projects = await getHomeProjects();
+
   return (
     <html>
       <body>
-        <ParallaxProvider>
-          <Navbar />
-          {children}
-        </ParallaxProvider>
+        <ClientLayout projects={projects}>{children}</ClientLayout>
       </body>
     </html>
   );

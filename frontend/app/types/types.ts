@@ -1,10 +1,10 @@
 export interface ContentBoxType {
-  id?: string;
-  title?: string;
-  text: string;
-  link?: string;
-  // boxId: string;
+  id: string | null;
+  slug: string | null;
+  title: string | null;
+  text: string | null;
   imageUrl?: string;
+  buttonLink?: string;
   location?: {
     top: number;
     left: number;
@@ -16,14 +16,3 @@ export interface ContentBoxType {
   blur?: boolean;
   bringToFront?: () => void;
 }
-
-export type ContentBoxInputs = {
-  id?: string;
-  title: string;
-  text: string;
-  link?: string;
-  // boxId: string;
-  location?: { top: number; left: number };
-  remWidth?: number | null;
-  imageUrl?: string;
-};
