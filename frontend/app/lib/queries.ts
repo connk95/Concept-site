@@ -25,7 +25,9 @@ export async function getProjectBySlug(
 }
 
 export async function getAllTech(): Promise<NetworkContentBoxType[] | null> {
-  const result = await pool.query("SELECT * FROM public.tech");
+  const result = await pool.query(
+    "SELECT * FROM public.tech WHERE (hidden_flag IS NULL OR hidden_flag = false) ORDER BY priority ASC"
+  );
 
   if (result.rows.length === 0) return null;
   return result.rows.map((row) => ({

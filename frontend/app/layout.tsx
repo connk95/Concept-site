@@ -10,7 +10,7 @@ export default async function RootLayout({
 
   return (
     <html>
-      <body>
+      <body style={{ overflowX: "hidden" }}>
         <ClientLayout projects={projects}>{children}</ClientLayout>
       </body>
     </html>

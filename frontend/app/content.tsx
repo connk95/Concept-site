@@ -51,6 +51,7 @@ export default function HomeContent({
           blur={true}
           zIndex={zIndexStack.indexOf(`${box.id}`) + 1}
           bringToFront={() => utils.bringToFront(`${box.id}`, setZIndexStack)}
+          id={""}
         />
       ))}
     </div>

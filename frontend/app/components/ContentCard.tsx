@@ -36,7 +36,7 @@ export const ContentCard: React.FC<NetworkContentCardType> = ({
               alt={title || "Content image"}
               width={80}
               height={80}
-              style={{ marginLeft: "1rem", marginRight: "1rem" }}
+              style={{ marginRight: "1rem" }}
             />
           )}
           <h2>{title || "Subtitle"}</h2>
