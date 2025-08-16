@@ -118,6 +118,16 @@ body {
   border-radius: 2px;
 }
 
+.image-box {
+  background: white;
+  box-shadow: #0a0a0a 0px 0px 0px 2px, #0a0a0a 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  padding: 20px;
+  user-select: none;
+  cursor: grab;
+  border-radius: 2px;
+}
+
 .content-box:hover {
   filter: blur(0px) !important;
   transition: filter 0.3s;

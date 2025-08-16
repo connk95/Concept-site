@@ -1,4 +1,4 @@
-import { ContentBoxType } from "../types/types";
+import { NetworkContentBoxType } from "../types/types";
 /**
  * Moves selected element to top of element stack
  * Higher elements are given larger z-indexes
@@ -16,9 +16,9 @@ export function bringToFront<T>(
  * @param elements
  */
 export const randomizeLocations = (
-  elements: ContentBoxType[],
+  elements: NetworkContentBoxType[],
   setPageHeight: React.Dispatch<React.SetStateAction<number>>,
-  setContent: React.Dispatch<React.SetStateAction<ContentBoxType[]>>
+  setContent: React.Dispatch<React.SetStateAction<NetworkContentBoxType[]>>
 ) => {
   elements.forEach((element, index) => {
     const previous = elements[index - 1];
