@@ -34,6 +34,8 @@ export const ProjectContent: React.FC<Props> = ({ project }) => {
         text={project.text}
         location={{ top: 9, left: 4 }}
         remWidth={50}
+        buttonLink={project.demo}
+        buttonText="demo"
         layout="horizontal"
         zIndex={zIndexStack.indexOf(`${project.id}`) + 1}
         bringToFront={() => utils.bringToFront(`${project.id}`, setZIndexStack)}
@@ -43,7 +45,7 @@ export const ProjectContent: React.FC<Props> = ({ project }) => {
           id={project.id}
           imageUrl={project.imageUrl ?? ""}
           zIndex={zIndexStack.indexOf(`${project.id}`) + 1}
-          location={{ top: 26, left: 4 }}
+          location={{ top: 27, left: 4 }}
           remSize={{ width: 50, height: 25 }}
           bringToFront={() =>
             utils.bringToFront(`${project.id}`, setZIndexStack)
@@ -57,6 +59,7 @@ export const ProjectContent: React.FC<Props> = ({ project }) => {
           right: "12rem",
           height: "20rem",
           width: "20rem",
+          transition: "height 1s ease-in-out",
         }}
       >
         <DraggableImageGrid

@@ -16,6 +16,7 @@ export const ContentBox: React.FC<NetworkContentBoxType> = ({
   zIndex,
   blur,
   buttonLink,
+  buttonText,
   bringToFront,
 }) => {
   const left = location?.left ?? 0;
@@ -29,7 +30,7 @@ export const ContentBox: React.FC<NetworkContentBoxType> = ({
           style={{
             left: `${left}rem`,
             top: `${top}rem`,
-            transition: "height 1s ease-in-out",
+            transition: "height 0.3s ease-in-out",
             display: "flex",
             flexDirection: layout === "horizontal" ? "row" : "column",
             alignItems: "center",
@@ -47,7 +48,7 @@ export const ContentBox: React.FC<NetworkContentBoxType> = ({
             <p>{text}</p>
             {buttonLink && (
               <Link href={buttonLink}>
-                <button style={{ width: "4rem" }}>Button</button>
+                <button style={{}}>{buttonText}</button>
               </Link>
             )}{" "}
           </div>

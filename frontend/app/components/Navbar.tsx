@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Draggable from "./Draggable";
 import Tree from "./Tree";
-import { useParallaxController } from "react-scroll-parallax";
 import Link from "next/link";
 import { NetworkContentBoxType } from "../types/types";
 
@@ -12,67 +11,30 @@ type NavbarProps = {
 };
 
 const Navbar: React.FC<NavbarProps> = ({ projects }) => {
-  const navbarRef = useRef<HTMLDivElement>(null);
-  const [isFixed, setIsFixed] = useState(false);
-  const [fixedTop, setFixedTop] = useState(0);
-
-  const controller = useParallaxController();
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (controller) controller.update();
-    }, 300); // match your CSS transition duration
-
-    return () => clearTimeout(timeout);
-  }, [controller, isFixed]);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!navbarRef.current) return;
-
-      const rect = navbarRef.current.getBoundingClientRect();
-      const scrollY = window.scrollY;
-
-      if (rect.top <= 0 && !isFixed) {
-        setIsFixed(true);
-        setFixedTop(scrollY);
-      } else if (scrollY < fixedTop) {
-        setIsFixed(false);
-      }
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isFixed, fixedTop]);
+  }, []);
 
   return (
     <div>
+      <div style={{ height: "8rem", paddingBottom: "9rem" }} />
       <div
         className="header"
         style={{
-          position: isFixed ? "relative" : "fixed",
+          position: "fixed",
           top: 0,
-          width: "100%",
-          backgroundColor: "",
-          transition: "height 0s",
-          height: "8rem",
-          display: "flex",
-          alignItems: "center",
-          padding: "0 20px",
-          opacity: 0,
-          zIndex: 10000,
-        }}
-      ></div>
-      <div
-        ref={navbarRef}
-        className="header"
-        style={{
-          position: isFixed ? "fixed" : "relative",
-          top: 0,
+          left: 0,
           width: "100%",
           backgroundColor: "#0a0a0a",
           transition: "height 0.3s ease-in-out",
-          height: isFixed ? "4.3rem" : "8rem",
+          height: scrolled ? "4.3rem" : "8rem",
           display: "flex",
           alignItems: "center",
           padding: "0 20px",
@@ -88,10 +50,10 @@ const Navbar: React.FC<NavbarProps> = ({ projects }) => {
               fontSize: "82px",
               fontFamily: "Zen Kaku Gothic New",
               fontStyle: "normal",
-              transition: "font-size 0.3s ease-in-out, top 0.3s ease-in-out",
-              top: isFixed ? "-29px" : "30px",
+              top: scrolled ? "-29px" : "30px",
               textShadow: "none",
               color: "#95d92e",
+              transition: "all 0.3s ease-in-out",
             }}
           >
             回
@@ -101,8 +63,8 @@ const Navbar: React.FC<NavbarProps> = ({ projects }) => {
             style={{
               position: "absolute",
               left: "120px",
-              transition: "font-size 0.3s ease-in-out, top 0.3s ease-in-out",
-              top: isFixed ? "-23px" : "36px",
+              top: scrolled ? "-23px" : "36px",
+              transition: "all 0.3s ease-in-out",
             }}
           >
             <Link href="/">WEBSITE TITLE</Link>
@@ -111,20 +73,18 @@ const Navbar: React.FC<NavbarProps> = ({ projects }) => {
             style={{
               position: "absolute",
               left: "288px",
-              transition: "font-size 0.3s ease-in-out, top 0.3s ease-in-out",
               fontSize: "56px",
-              top: isFixed ? "-96px" : "77px",
+              top: scrolled ? "-96px" : "77px",
+              transition: "all 0.3s ease-in-out",
             }}
-          >
-            {" "}
-          </h3>
+          />
         </div>
         <Draggable>
           <div
             className="content-box menu-box"
             style={{
-              transition: "font-size 0.3s ease-in-out, top 0.3s ease-in-out",
-              top: isFixed ? "3.2rem" : "5rem",
+              transition: "all 0.3s ease-in-out",
+              top: scrolled ? "3.2rem" : "5rem",
             }}
           >
             <div className="tree-container">

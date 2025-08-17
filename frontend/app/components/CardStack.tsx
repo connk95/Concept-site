@@ -18,10 +18,10 @@ export const CardStack: React.FC<Props> = ({ cards }) => {
       const rect = containerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Calculate scroll progress for the section
+      // progress from 0 (cards offscreen) to 1 (cards fully stacked)
       const progress = Math.min(
         Math.max((windowHeight - rect.top) / (rect.height + windowHeight), 0),
-        5
+        1
       );
       setScrollProgress(progress);
     };
@@ -31,13 +31,13 @@ export const CardStack: React.FC<Props> = ({ cards }) => {
   }, []);
 
   const cardWidth = 324;
-  const overlap = 0.999;
+  const overlap = 0.9; // adjust how much the cards overlap
 
   return (
     <div
       ref={containerRef}
       style={{
-        height: cardWidth * cards.length + 880,
+        height: cardWidth * cards.length + 880, // total scrollable area
         position: "relative",
         top: "15rem",
         left: "6rem",
@@ -53,21 +53,12 @@ export const CardStack: React.FC<Props> = ({ cards }) => {
         }}
       >
         {cards.map((card, index) => {
-          const step = index / cards.length / 2;
-          const offsetProgress = Math.min(
-            Math.max((scrollProgress - step) / (1 - step), 0),
-            1
-          );
+          const startX = index * cardWidth;
+          const endX = index * cardWidth * (1 - overlap);
 
-          const startX = index * cardWidth; // side by side at start
-          const endX =
-            index *
-            (cardWidth * (1 - overlap * (cards.length / (cards.length - 0.4)))); // overlap after scroll
+          const translateX = startX - scrollProgress * (startX - endX);
 
-          const translateX = startX - offsetProgress * (startX - endX);
-
-          const isActive = offsetProgress > 0 && offsetProgress < 1;
-          const zIndex = isActive ? cards.length + 1 : cards.length - index;
+          const zIndex = cards.length + index;
 
           return (
             <div
@@ -76,7 +67,7 @@ export const CardStack: React.FC<Props> = ({ cards }) => {
                 position: "absolute",
                 left: `${translateX}px`,
                 zIndex,
-                transition: "transform 0.1s linear",
+                transition: "transform 0.3s linear",
               }}
             >
               <ContentCard {...card} remSize={{ height: 30, width: 20 }} />

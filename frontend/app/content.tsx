@@ -47,6 +47,7 @@ export default function HomeContent({
           title={box.title}
           text={box.text}
           buttonLink={`/projects/${box.slug}`}
+          buttonText="details"
           location={box.location}
           blur={true}
           zIndex={zIndexStack.indexOf(`${box.id}`) + 1}

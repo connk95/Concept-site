@@ -26,7 +26,7 @@ export const ImageBox: React.FC<ImageBoxType> = ({
             position: "absolute",
             left: `${left}rem`,
             top: `${top}rem`,
-            transition: "height 1s ease-in-out",
+            transition: "height 0.3s ease-in-out",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",

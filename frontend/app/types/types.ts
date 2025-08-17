@@ -6,6 +6,8 @@ export interface NetworkContentBoxType {
   imageUrl?: string;
   techImages?: string[];
   buttonLink?: string;
+  buttonText?: string;
+  demo?: string;
   location?: {
     top: number;
     left: number;
