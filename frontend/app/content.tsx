@@ -39,7 +39,7 @@ export default function HomeContent({
         <p>toggle blur</p>
       </div>
 
-      <HeroText textArray={["BIG", "HERO", "TEXT"]} />
+      <HeroText textArray={["FULL", "STACK", "ENGINEER"]} />
 
       {content.map((box, index) => (
         <ContentBox

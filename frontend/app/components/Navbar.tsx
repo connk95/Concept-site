@@ -67,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({ projects }) => {
               transition: "all 0.3s ease-in-out",
             }}
           >
-            <Link href="/">WEBSITE TITLE</Link>
+            <Link href="/">CONNOR.DEV</Link>
           </h3>
           <h3
             style={{
@@ -90,9 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({ projects }) => {
             <div className="tree-container">
               <Tree name="Menu">
                 <Tree name="Home" url="/" />
-                <Tree name="Services">
-                  <Tree name="Website" />
-                </Tree>
+                <Tree name="Resume" url="resume" />
                 <Tree name="Portfolio">
                   {projects.map((project) => (
                     <Tree
@@ -104,7 +102,7 @@ const Navbar: React.FC<NavbarProps> = ({ projects }) => {
                 </Tree>
                 <Tree name="Technology" url="/technology" />
                 <Tree name="About" />
-                <Tree name="Contact" />
+                <Tree name="Contact" url="/contact" />
               </Tree>
             </div>
           </div>

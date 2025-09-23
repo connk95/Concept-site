@@ -45,7 +45,14 @@ export const ContentBox: React.FC<NetworkContentBoxType> = ({
 
           <div style={{ display: "flex", flexDirection: "column" }}>
             <h2>{title || "Subtitle"}</h2>
-            <p>{text}</p>
+            <p>
+              {text?.split("<br>").map((line, i) => (
+                <span key={i}>
+                  {line.trim()}
+                  <br />
+                </span>
+              ))}
+            </p>{" "}
             {buttonLink && (
               <Link href={buttonLink}>
                 <button style={{}}>{buttonText}</button>
