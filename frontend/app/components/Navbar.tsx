@@ -90,7 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({ projects }) => {
             <div className="tree-container">
               <Tree name="Menu">
                 <Tree name="Home" url="/" />
-                <Tree name="Resume" url="resume" />
+                <Tree name="Resume" url="/resume" />
                 <Tree name="Portfolio">
                   {projects.map((project) => (
                     <Tree
@@ -101,7 +101,7 @@ const Navbar: React.FC<NavbarProps> = ({ projects }) => {
                   ))}
                 </Tree>
                 <Tree name="Technology" url="/technology" />
-                <Tree name="About" />
+                <Tree name="About" url="/about" />
                 <Tree name="Contact" url="/contact" />
               </Tree>
             </div>
