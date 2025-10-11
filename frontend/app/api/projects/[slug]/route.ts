@@ -3,9 +3,9 @@ import pool from "../../../lib/db";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  context: { params: Record<string, string> }
 ) {
-  const { slug } = params;
+  const { slug } = context.params;
 
   try {
     const result = await pool.query(
