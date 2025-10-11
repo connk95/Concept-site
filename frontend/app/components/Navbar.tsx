@@ -45,11 +45,11 @@ const Navbar: React.FC<NavbarProps> = ({ projects }) => {
           <h3
             style={{
               position: "absolute",
-              left: "44px",
-              fontSize: "124px",
+              left: "50px",
+              fontSize: "118px",
               fontFamily: "Consolas",
               fontStyle: "normal",
-              top: scrolled ? "-44.5px" : "14px",
+              top: scrolled ? "-31.5px" : "27.5px",
               textShadow: "none",
               color: "#95d92e",
               transition: "all 0.3s ease-in-out",
@@ -75,7 +75,7 @@ const Navbar: React.FC<NavbarProps> = ({ projects }) => {
               fontSize: "124px",
               fontFamily: "Consolas",
               fontStyle: "normal",
-              top: scrolled ? "-61px" : "-2px",
+              top: scrolled ? "-62px" : "-3px",
               textShadow: "none",
               color: "#95d92e",
               transition: "all 0.3s ease-in-out",

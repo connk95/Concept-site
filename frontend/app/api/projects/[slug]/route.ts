@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import pool from "../../lib/db";
+import pool from "../../../lib/db";
 
 export async function GET(
   request: NextRequest,
-  context: { params: { slug: string } }
+  { params }: { params: { slug: string } }
 ) {
-  const { slug } = await context.params;
+  const { slug } = params;
 
   try {
     const result = await pool.query(
