@@ -43,20 +43,19 @@ const Navbar: React.FC<NavbarProps> = ({ projects }) => {
       >
         <div>
           <h3
-            className="jp"
             style={{
               position: "absolute",
-              left: "30px",
-              fontSize: "82px",
-              fontFamily: "Zen Kaku Gothic New",
+              left: "44px",
+              fontSize: "124px",
+              fontFamily: "Consolas",
               fontStyle: "normal",
-              top: scrolled ? "-29px" : "30px",
+              top: scrolled ? "-44.5px" : "14px",
               textShadow: "none",
               color: "#95d92e",
               transition: "all 0.3s ease-in-out",
             }}
           >
-            回
+            {">"}
           </h3>
           <h3
             className="title"
@@ -68,6 +67,21 @@ const Navbar: React.FC<NavbarProps> = ({ projects }) => {
             }}
           >
             <Link href="/">CONNOR.DEV</Link>
+          </h3>
+          <h3
+            style={{
+              position: "absolute",
+              left: "750px",
+              fontSize: "124px",
+              fontFamily: "Consolas",
+              fontStyle: "normal",
+              top: scrolled ? "-61px" : "-2px",
+              textShadow: "none",
+              color: "#95d92e",
+              transition: "all 0.3s ease-in-out",
+            }}
+          >
+            _
           </h3>
           <h3
             style={{

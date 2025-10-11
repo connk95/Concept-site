@@ -1,27 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Zen+Kaku+Gothic+New&display=swap");
 
-/* @import "tailwindcss"; */
-/* 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-} */
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
 @font-face {
   font-family: "neueMontreal";
   font-style: normal;
@@ -55,6 +34,13 @@
   font-style: normal;
   font-weight: normal;
   src: url("/fonts/akihabored.otf");
+}
+
+@font-face {
+  font-family: "consolas";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/Consolas.tff");
 }
 
 html,
@@ -186,12 +172,9 @@ body {
   margin-left: 2rem;
   color: white;
   font-size: 95px;
-  /* font-family: "Chivo", serif; */
   font-family: "neueMontrealBold";
   font-optical-sizing: auto;
   font-weight: 800;
-  /* font-style: italic; */
-  /* text-shadow: #95d92e 2px 2px; */
   z-index: 10001;
   transition: top 0.3s ease-in-out, font-size 0.3s ease-in-out;
 }
@@ -395,14 +378,6 @@ input:checked + .slider:before {
 
 img {
   pointer-events: none;
-}
-
-.jp {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  color: white;
 }
 
 a {
