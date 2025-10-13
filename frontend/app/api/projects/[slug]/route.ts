@@ -3,14 +3,12 @@ import pool from "../../../lib/db";
 
 export async function GET(
   request: NextRequest,
-  context: { params: Record<string, string> }
+  { params }: { params: { slug: string } }
 ) {
-  const { slug } = context.params;
-
   try {
     const result = await pool.query(
       "SELECT * FROM public.projects WHERE slug = $1",
-      [slug]
+      [params.slug]
     );
 
     if (result.rows.length === 0) {
