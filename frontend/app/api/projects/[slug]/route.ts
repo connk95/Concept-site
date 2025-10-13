@@ -1,14 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import pool from "../../../lib/db";
 
-interface RouteContext {
-  params: {
-    slug: string;
-  };
-}
-
-export async function GET(request: NextRequest, { params }: RouteContext) {
-  const { slug } = params;
+export async function GET(request: NextRequest, context: unknown) {
+  const { slug } = (context as { params: { slug: string } }).params;
 
   try {
     const result = await pool.query(
