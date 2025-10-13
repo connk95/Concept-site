@@ -1,14 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import pool from "../../../lib/db";
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { slug: string } }
-) {
+interface RouteContext {
+  params: {
+    slug: string;
+  };
+}
+
+export async function GET(request: NextRequest, { params }: RouteContext) {
+  const { slug } = params;
+
   try {
     const result = await pool.query(
       "SELECT * FROM public.projects WHERE slug = $1",
-      [params.slug]
+      [slug]
     );
 
     if (result.rows.length === 0) {
