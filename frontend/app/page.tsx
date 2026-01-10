@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import HomeContent from "./content";
 import { getHomeProjects } from "./lib/queries";
 import "./globals.css";

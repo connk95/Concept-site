@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { NetworkContentBoxType } from "../types/types";
 import { getAllTech } from "../lib/queries";
 import { notFound } from "next/navigation";

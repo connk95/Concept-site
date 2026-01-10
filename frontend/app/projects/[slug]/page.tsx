@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { notFound } from "next/navigation";
 import { ProjectContent } from "./content";
 import { getProjectBySlugWithTech } from "../../lib/queries";
