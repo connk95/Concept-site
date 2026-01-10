@@ -18,8 +18,6 @@ export const ProjectContent: React.FC<Props> = ({ project }) => {
 
   const heroText = project.title?.split(" ") ?? [];
 
-  console.log(project.imageUrl);
-
   return (
     <div
       style={{
