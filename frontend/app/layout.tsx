@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import ClientLayout from "./ClientLayout";
 import { getHomeProjects } from "./lib/queries";
 
